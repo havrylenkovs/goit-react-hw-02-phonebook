@@ -1,13 +1,10 @@
 import { Component } from 'react';
-// import PropTypes from 'prop-types';
-// import { nanoid } from 'nanoid';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import ContactItem from './ContactItem/ContactItem';
-import Finder from './Finder/Finder';
+import Filter from './Filter/Filter';
 
 const mainStyle = {
-  // height: '100vh',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -48,7 +45,6 @@ class App extends Component {
       contact.name.toLowerCase().includes(normalizedfilter)
     );
   };
-  // +++++++++++++
   deleteContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
@@ -66,7 +62,7 @@ class App extends Component {
         <h2>Phonebook</h2>
         <ContactForm onSubmit={this.addContact} />
         <h3>Contacts</h3>
-        <Finder filter={filter} onChange={this.changeFilter} />
+        <Filter filter={filter} onChange={this.changeFilter} />
         <ContactList>
           <ContactItem
             contacts={visibleContact}
@@ -79,21 +75,3 @@ class App extends Component {
 }
 
 export default App;
-
-// formSubmit = ({ name, number }) => {
-//   const contact = {
-//     // id: nanoid(),
-//     name,
-//     number,
-//   };
-//   this.state.contacts.some(
-//     i =>
-//       (i.name.toLowerCase() === contact.name.toLowerCase() &&
-//         i.number === contact.number) ||
-//       i.number === contact.number
-//   )
-//     ? alert(`${name} is already in contacts`)
-//     : this.setState(({ contacts }) => ({
-//         contacts: [contact, ...contacts],
-//       }));
-// };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Finder = ({ filter, onChange }) => {
+const Filter = ({ filter, onChange }) => {
   return (
     <div
       style={{
@@ -24,5 +24,5 @@ const Finder = ({ filter, onChange }) => {
     </div>
   );
 };
-Finder.propTypes = {};
-export default Finder;
+Filter.propTypes = {};
+export default Filter;
